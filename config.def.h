@@ -62,6 +62,13 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	/* function             format          argument */
+    { ram_used,             " %s/" },
+    { ram_total,            "%s" },
+    { cpu_perc,             "(%s%%)  " },
+    { wifi_essid,            " %s  ",           "wlp3s0" },
+	{ battery_perc,         " %s%%  ",       "BAT0" },
+	{ run_command,          " %s%%  ", "/bin/bash -c \"amixer get Master | tail -n1 | grep -Po '\\[\\K[^%]*' | head -n1\"" },
+    { keymap,               " %s  " },
+	{ datetime,             "%s",          " %a, %d %b %Y   %I:%M" },
 };
